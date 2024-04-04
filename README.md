@@ -48,3 +48,10 @@ $ poetry run tox
 
 - [tiangolo/full\-stack\-fastapi\-postgresql: Full stack, modern web application generator\. Using FastAPI, PostgreSQL as database, Docker, automatic HTTPS and more\.](https://github.com/tiangolo/full-stack-fastapi-postgresql)
 - [eightBEC/fastapi\-ml\-skeleton: FastAPI Skeleton App to serve machine learning models production\-ready\.](https://github.com/eightBEC/fastapi-ml-skeleton)
+
+# Additional settings
+pip install pydantic-settings
+pip install fastapi
+pip install "uvicorn[standard]"
+
+Change import at config.py from pydantic_settings import BaseSettings
