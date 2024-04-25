@@ -6,7 +6,9 @@ I wrote a blog post about this repository in Japanese.
 
 ## Run Web API
 ### Local
-
+```sh
+$ uvicorn app.main:app --reload
+```
 ```sh
 $ sh run.sh
 ```
