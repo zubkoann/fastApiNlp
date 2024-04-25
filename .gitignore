@@ -124,6 +124,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.vscode
+.flake8
 
 # Spyder project settings
 .spyderproject
