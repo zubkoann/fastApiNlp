@@ -20,3 +20,16 @@ class SimilarityResponse(BaseModel):
     line1: str
     line2: str
     similarity: float
+
+
+class PreprocessRequest(BaseModel):
+    remove_html: bool
+    remove_url: bool
+    tokenize: bool
+    remove_stopwords: bool
+    lemmatize: bool
+    lowercasing: bool
+    remove_punctuation: bool
+    remove_extra_ws: bool
+    remove_frequent_words: bool
+    spelling_correction: bool
