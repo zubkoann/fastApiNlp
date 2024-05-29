@@ -24,7 +24,7 @@ pipeline = {
     "lowercasing": True,
     "remove_punctuation": True,
     "remove_extra_ws": True,
-    "remove_frequent_words": True,
+    "remove_frequent_words": False,
     "spelling_correction": False,
 }
 

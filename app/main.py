@@ -4,6 +4,8 @@ from contextlib import asynccontextmanager
 from app.api.api import api_router
 from app.api.heartbeat import heartbeat_router
 from app.api.endpoints import router
+from app.api.doc2vec import doc2vec_router
+
 from app.core.config import settings
 from app.core.event_handler import start_app_handler, stop_app_handler
 import logging
@@ -16,6 +18,8 @@ model_trained = False
 
 
 app.include_router(router)
+app.include_router(doc2vec_router)
+
 app.include_router(heartbeat_router)
 app.include_router(api_router, prefix=settings.API_V1_STR, tags=["ML API"])
 
