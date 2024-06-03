@@ -10,6 +10,7 @@ from pathlib import Path
 import pickle
 import os
 from tqdm import tqdm
+import time
 
 
 logging.basicConfig(level=logging.INFO)
@@ -71,9 +72,10 @@ def retrain_model():
     model_trainer.dataset = load_data()  # Установка датасета
     logging.info("data is loaded")
     model_trainer.training_in_progress = True
-    logging.info("preprocess is started")
+    start_time = time.time()
     X, y = preprocess_data(model_trainer.dataset["review"][:10000], model_trainer.dataset["sentiment"][:10000])
-    logging.info("data is preprocessed")
+    end_time = time.time()
+    logging.info(f"data is preprocessed, time: {end_time - start_time} (last time: 12.967535257339478)")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     logging.info("model is starts to train")
     with tqdm(total=len(X_train)) as pbar:
