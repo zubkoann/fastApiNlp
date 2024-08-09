@@ -2,8 +2,11 @@ from fastapi import FastAPI
 import nltk
 from contextlib import asynccontextmanager
 from app.api.api import api_router
+from app.api.api_transformers import api_transformers
 from app.api.heartbeat import heartbeat_router
 from app.api.endpoints import router
+from app.api.endpoint_spacy import router_spacy
+
 from app.api.doc2vec import doc2vec_router
 
 from app.core.config import settings
@@ -21,7 +24,10 @@ app.include_router(router)
 app.include_router(doc2vec_router)
 
 app.include_router(heartbeat_router)
+app.include_router(router_spacy)
+app.include_router(api_transformers)
 app.include_router(api_router, prefix=settings.API_V1_STR, tags=["ML API"])
+
 
 app.add_event_handler("startup", start_app_handler(app, settings.MODEL_PATH))
 app.add_event_handler("shutdown", stop_app_handler(app))

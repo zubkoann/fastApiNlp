@@ -1,10 +1,17 @@
 from typing import Any
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, HTTPException
+from pydantic import BaseModel
+from app.services.transformer_classification import get_overall_sentiment
 
 from app.models.predict import PredictRequest, PredictResponse
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 api_router = APIRouter()
+
+
+class TextRequest(BaseModel):
+    text: str
 
 
 @api_router.post("/predict", response_model=PredictResponse)

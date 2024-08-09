@@ -136,7 +136,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
-
+app/trained_models
 # mypy
 .mypy_cache/
 .dmypy.json
